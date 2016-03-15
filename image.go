@@ -71,6 +71,8 @@ func Resize(buf []byte, o ImageOptions) (Image, error) {
 		opts.Crop = true
 	}
 
+	opts.Embed = false
+
 	return Process(buf, opts)
 }
 
