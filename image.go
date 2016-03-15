@@ -3,7 +3,8 @@ package main
 import (
 	"encoding/json"
 	"errors"
-	"gopkg.in/h2non/bimg.v0"
+	//"gopkg.in/h2non/bimg.v0"
+	"github.com/twilkensboopsie/bimg"
 )
 
 // Image stores an image binary buffer and its MIME type
@@ -65,12 +66,13 @@ func Resize(buf []byte, o ImageOptions) (Image, error) {
 	}
 
 	opts := BimgOptions(o)
-	opts.Embed = true
+	//opts.Embed = true
 
 	if o.NoCrop == false {
 		opts.Crop = true
 	}
 
+        opts.Force = false
 	opts.Embed = false
 
 	return Process(buf, opts)

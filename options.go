@@ -1,6 +1,7 @@
 package main
 
-import "gopkg.in/h2non/bimg.v0"
+//import "gopkg.in/h2non/bimg.v0"
+import "github.com/twilkensboopsie/bimg"
 
 // ImageOptions represent all the supported image transformation params as first level members
 type ImageOptions struct {
@@ -17,6 +18,7 @@ type ImageOptions struct {
 	Factor      int
 	DPI         int
 	TextWidth   int
+        Embed       bool
 	Force       bool
 	NoCrop      bool
 	NoReplicate bool
@@ -45,5 +47,6 @@ func BimgOptions(o ImageOptions) bimg.Options {
 		Interpretation: o.Colorspace,
 		Type:           ImageType(o.Type),
 		Rotate:         bimg.Angle(o.Rotate),
+		Embed:          o.Embed,
 	}
 }
